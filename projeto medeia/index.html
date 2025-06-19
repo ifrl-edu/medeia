@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Medeia - IFAL</title>
+  <style>
+    :root {
+      --main-color: #006400;
+      --accent-color: #228b22;
+      --header-bg: #fff;
+      --text-color: #f0f0f0;
+      --button-radius: 10px;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--main-color);
+      color: var(--text-color);
+    }
+    header {
+      background-color: var(--header-bg);
+      color: var(--main-color);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+    }
+    .logo {
+      max-width: 250px;
+      width: 80%;
+      height: auto;
+      margin-bottom: 15px;
+      filter: saturate(1.1);
+    }
+    header h1 {
+      font-size: 2em;
+      margin: 0 0 10px;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 1em;
+      opacity: 0.85;
+      margin: 0;
+      font-weight: 600;
+    }
+    main {
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: calc(100vh - 140px);
+    }
+    .nav-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 320px;
+    }
+    .nav-buttons button,
+    .nav-buttons a button {
+      background-color: var(--accent-color);
+      color: var(--text-color);
+      padding: 15px;
+      border: none;
+      border-radius: var(--button-radius);
+      font-size: 1em;
+      font-weight: bold;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+    .nav-buttons button:hover {
+      background-color: #2e8b57;
+    }
+    .content {
+      display: none;
+      max-width: 800px;
+      animation: fadeIn 0.5s ease-in-out;
+      text-align: justify;
+      background-color: #f9f9f9;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+      line-height: 1.5em;
+      color: #222;
+      min-height: 300px;
+    }
+    .content.active {
+      display: block;
+    }
+    .back-button {
+      margin-top: 30px;
+      background-color: #444;
+      color: #f0f0f0;
+      padding: 10px 20px;
+      border: none;
+      border-radius: var(--button-radius);
+      cursor: pointer;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.25);
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .back-button:hover {
+      background-color: #222;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    footer {
+      margin-top: 40px;
+      padding: 15px;
+      background-color: #eee;
+      color: #666;
+      text-align: center;
+      font-size: 0.9em;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    em.project-name {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--main-color);
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img
+      src="https://www2.ifal.edu.br/campus/riolargo/comunicacao/arquivos/ifal_rio_largo_horizontal.png"
+      alt="Logo IFAL Rio Largo"
+      class="logo"
+    />
+    <h1>Peça Teatral: Medeia</h1>
+    <p>Adaptação e direção de Caio Ricardo</p>
+  </header>
+
+  <main>
+    <div id="menu" class="nav-buttons">
+      <button onclick="showContent('peca')">Sobre a Peça</button>
+      <button onclick="showContent('diretor')">Sobre o Diretor</button>
+      <button onclick="showContent('autor')">Sobre o Autor Original</button>
+      <a href="https://www.instagram.com/medeia.ifrl/" target="_blank"><button>Instagram</button></a>
+    </div>
+
+    <section id="peca" class="content">
+      <h2>Sobre a Peça</h2>
+      <p><strong>"Medeia"</strong>, escrita por <strong>Eurípedes</strong> em 431 a.C., é uma das tragédias mais impactantes da dramaturgia grega. A história acompanha Medeia, mulher traída por Jasão, que decide se vingar de forma extrema e surpreendente. A peça questiona os papéis sociais da mulher, a justiça, a paixão e a vingança.</p>
+      <p>Nesta adaptação e direção de <strong>Caio Ricardo</strong>, professor do IFAL - Campus Rio Largo, a trama ganha contornos contemporâneos, sem perder sua intensidade dramática. A encenação convida à reflexão sobre os limites do amor, do poder e da ruptura de expectativas sociais.</p>
+      <button class="back-button" onclick="goBack()">Voltar</button>
+    </section>
+
+    <section id="diretor" class="content">
+      <h2>Sobre o Diretor: Prof. Caio Ricardo</h2>
+      <p><strong>Caio Ricardo da Silva Araújo</strong> é graduado em Artes Cênicas pela Universidade Federal de Alagoas (UFAL, 2002) e mestre em Educação Brasileira pela mesma instituição (2006). Sua dissertação abordou a dimensão pedagógica do teatro, refletindo metodologias inovadoras para a prática teatral na educação.</p>
+      <p>Com ampla atuação nas áreas de artes e educação, Caio desenvolve projetos que unem teatro, formação de sujeitos-atores e metodologia teatral aplicada ao contexto educacional e social. É professor efetivo do Instituto Federal de Alagoas (IFAL), lecionando a disciplina Estudo das Artes e coordenando atividades culturais e pedagógicas.</p>
+      <p>Entre seus projetos, destacam-se <em class="project-name">NorteArtes</em>, que realizou oficinas e montagens teatrais com jovens das regiões Norte e interior de Alagoas; o programa <em class="project-name">ArtIFAL</em>, voltado para oficinas artísticas multidisciplinares; e o <em class="project-name">Cruzeiro do Norte</em>, com foco na formação cultural de estudantes e jovens.</p>
+      <p>Caio também tem extensa produção acadêmica e artística, incluindo o livro <strong>"Quando a Vida Vira Teatro"</strong> (2020), e várias apresentações e artigos que consolidam sua atuação na interseção entre arte, educação e cultura popular.</p>
+      <button class="back-button" onclick="goBack()">Voltar</button>
+    </section>
+
+    <section id="autor" class="content">
+      <h2>Sobre o Autor Original: Eurípedes</h2>
+      <p><strong>Eurípedes</strong> foi um dos três grandes dramaturgos da Grécia Antiga, ao lado de Sófocles e Ésquilo. Viveu entre aproximadamente 485 a.C. e 406 a.C. Conhecido por trazer profundidade psicológica aos personagens e por desafiar normas sociais e religiosas de sua época, Eurípedes escreveu mais de 90 peças, sendo "Medeia" uma das mais célebres.</p>
+      <p>Sua obra é marcada por temas ousados, crítica social e protagonismo feminino. Em "Medeia", ele apresenta uma heroína complexa e controversa, cuja dor e fúria abalam as estruturas patriarcais. Eurípedes permanece uma referência fundamental para o teatro moderno e para os debates sobre emoção, justiça e moralidade.</p>
+      <button class="back-button" onclick="goBack()">Voltar</button>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 - IFAL Campus Rio Largo | Adaptação e Direção: Prof. Caio Ricardo
+  </footer>
+
+  <script>
+    function showContent(id) {
+      document.getElementById('menu').style.display = 'none';
+      document.getElementById(id).classList.add('active');
+    }
+    function goBack() {
+      const sections = document.querySelectorAll('.content');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById('menu').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
